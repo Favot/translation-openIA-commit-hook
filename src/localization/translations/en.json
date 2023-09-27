@@ -3,7 +3,7 @@
   "screen": {
     "welcomeScreen": {
       "screenContext": "Welcome screen context",
-      "title": "Welcome to the wild app app",
+      "title": "Welcome to the  app app",
       "description": "Thi is the description of the welcome screen"
     },
     "mainScreen": {
