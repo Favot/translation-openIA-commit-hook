@@ -1,7 +1,7 @@
 import * as shell from "shelljs";
-import { UpdatedTranslationData } from "../type";
+import { TranslationContent, UpdatedTranslationData } from "../type";
 
-export const executeCommand = (command: string) => {
+const executeCommand = (command: string) => {
   const result = shell.exec(command, { silent: true });
   if (result.code !== 0) {
     console.error(`Error executing command: ${command}`, result.stderr);
@@ -17,15 +17,15 @@ export const getChangedFiles = (): string[] => {
   return output ? output.split("\n") : [];
 };
 
-export const getFileContent = (gitRef: string, filePath: string) => {
+const getFileContent = (gitRef: string, filePath: string) => {
   const command = `git show ${gitRef}:${filePath}`;
   const output = executeCommand(command);
   return output ? JSON.parse(output) : {};
 };
 
-export const compareAndCaptureUpdates = (
-  stagedContent: any,
-  headContent: any
+const compareAndCaptureUpdates = (
+  stagedContent: TranslationContent,
+  headContent: TranslationContent
 ): UpdatedTranslationData => {
   const updatedTranslationData: UpdatedTranslationData = {
     appContext: null,
@@ -71,4 +71,16 @@ export const compareAndCaptureUpdates = (
   }
 
   return updatedTranslationData;
+};
+
+// Function to process a single file and return updated translation data
+export const processFile = (file: string) => {
+  if (!shell.test("-f", file)) {
+    return null;
+  }
+
+  const stagedContent = getFileContent("", file);
+  const headContent = getFileContent("HEAD", file);
+
+  return compareAndCaptureUpdates(stagedContent, headContent);
 };
