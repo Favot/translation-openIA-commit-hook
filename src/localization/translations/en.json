@@ -11,5 +11,9 @@
       "title": "Main screen",
       "description2": "This the drscription of the main screen"
     }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "validate": "Validate"
   }
 }
