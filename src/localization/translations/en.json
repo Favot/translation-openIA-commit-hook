@@ -1,5 +1,15 @@
 {
-  "greeting": "Hello",
-  "subscribe": "Buy premium version for 14.99$",
-  "rubscribe3": "Buy premium version for 14.99$"
+  "appContext": "App context",
+  "screen": {
+    "welcomeScreen": {
+      "screenContext": "Welcome screen context",
+      "title": "Welcome to the app",
+      "description": "This is the description of the welcome screen"
+    },
+    "mainScreen": {
+      "screenContext": "Main screen context",
+      "title": "Main screen",
+      "description3": "This is the description of the main screen"
+    }
+  }
 }
