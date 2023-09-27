@@ -4,12 +4,12 @@
     "welcomeScreen": {
       "screenContext": "Welcome screen context",
       "title": "Welcome to the app",
-      "description": "This is the description of the welcome screen"
+      "description": "Thi is the description of the welcome screen"
     },
     "mainScreen": {
       "screenContext": "Main screen context",
       "title": "Main screen",
-      "description2": "this is the description of the main screen"
+      "description2": "This is the description of the main screen"
     }
   }
 }
