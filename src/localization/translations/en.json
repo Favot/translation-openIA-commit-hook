@@ -2,7 +2,7 @@
   "appContext": "App context",
   "screen": {
     "welcomeScreen": {
-      "screenContext": "Welcome screen wild context",
+      "screenContext": "Welcome screen ild context",
       "title": "Welcome to the  app app",
       "description": "Thi is thdwdawdawe dddd description of the welcome screen"
     },
@@ -13,7 +13,7 @@
     }
   },
   "common": {
-    "cancel": "Cancelss",
+    "cancel": "Cancel",
     "validate": "Validate"
   }
 }
