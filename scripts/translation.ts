@@ -1,19 +1,19 @@
 import * as shell from "shelljs";
 
-interface ItemType {
+interface UpdatedTranslationItem {
   screenName: string;
   screenContext: string;
-  key: string;
-  value: string;
+  translationKey: string;
+  updatedTranslation: string;
 }
 
-interface ItemsType {
+interface UpdatedTranslationData {
   appContext: string | null;
-  updatedItems: ItemType[];
+  updatedItems: UpdatedTranslationItem[];
 }
 
 // Initialize the result object
-const items: ItemsType = {
+const updatedTranslationData: UpdatedTranslationData = {
   appContext: null,
   updatedItems: [],
 };
@@ -62,7 +62,7 @@ for (const file of files) {
           !headContent.hasOwnProperty(context) ||
           headContent[context] !== contextValue
         ) {
-          items.appContext = contextValue as string;
+          updatedTranslationData.appContext = contextValue as string;
         }
       } else if (typeof contextValue === "object") {
         for (const [screenName, screenValue] of Object.entries(contextValue)) {
@@ -73,11 +73,11 @@ for (const file of files) {
                 !headContent[context]?.[screenName]?.hasOwnProperty(key) ||
                 headContent[context][screenName][key] !== value
               ) {
-                items.updatedItems.push({
+                updatedTranslationData.updatedItems.push({
                   screenName,
                   screenContext,
-                  key,
-                  value: value as string,
+                  translationKey: key,
+                  updatedTranslation: value as string,
                 });
               }
             }
@@ -85,7 +85,15 @@ for (const file of files) {
         }
       }
     }
+
+    // If updatedItems length is greater than 0, update appContext
+    if (
+      updatedTranslationData.updatedItems.length > 0 &&
+      stagedContent.hasOwnProperty("appContext")
+    ) {
+      updatedTranslationData.appContext = stagedContent.appContext;
+    }
   }
 }
 
-console.log(items);
+console.log(updatedTranslationData);
