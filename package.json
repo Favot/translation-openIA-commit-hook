@@ -8,7 +8,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "translation": "ts-node ./scripts/translation.ts"
   },
   "dependencies": {
     "expo": "~49.0.12",
@@ -23,7 +24,10 @@
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.14",
     "husky": "^8.0.3",
-    "typescript": "^5.1.3"
+    "shelljs": "^0.8.5",
+    "ts-node": "^10.9.1",
+    "tsc": "^2.0.4",
+    "typescript": "^5.2.2"
   },
   "private": true
 }
