@@ -2,3 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 echo "Running pre-commit hook"
+
+# Run translation check
+npm run translation
