@@ -2,7 +2,7 @@
   "appContext": "App context",
   "screen": {
     "welcomeScreen": {
-      "screenContext": "Welcome screen context",
+      "screenContext": "Welcome screen wild context",
       "title": "Welcome to the  app app",
       "description": "Thi is the description of the welcome screen"
     },
