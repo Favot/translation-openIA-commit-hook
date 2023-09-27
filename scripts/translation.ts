@@ -1,5 +1,23 @@
 import * as shell from "shelljs";
 
+interface ItemType {
+  screenName: string;
+  screenContext: string;
+  key: string;
+  value: string;
+}
+
+interface ItemsType {
+  appContext: string | null;
+  updatedItems: ItemType[];
+}
+
+// Initialize the result object
+const items: ItemsType = {
+  appContext: null,
+  updatedItems: [],
+};
+
 // Adjusted command to match the correct directory structure
 const command =
   'git diff-index --name-only --cached --diff-filter=d HEAD | grep -E "^src/localization/translations/.*[a-z]{2}(-[a-z]{2})?\\.json$"';
@@ -12,8 +30,6 @@ if (result.code !== 0) {
 }
 
 const files = result.stdout.trim().split("\n");
-
-const items: Record<string, any> = {};
 
 for (const file of files) {
   if (shell.test("-f", file)) {
@@ -39,13 +55,37 @@ for (const file of files) {
     const headContent =
       headContentResult.code === 0 ? JSON.parse(headContentResult.stdout) : {};
 
-    // Compare the staged content with the content in HEAD to find updated keys
-    for (const [key, value] of Object.entries(stagedContent)) {
-      if (!headContent.hasOwnProperty(key) || headContent[key] !== value) {
-        items[key] = value;
+    // Traverse the JSON objects to compare each key at every level
+    for (const [context, contextValue] of Object.entries(stagedContent)) {
+      if (context === "appContext") {
+        if (
+          !headContent.hasOwnProperty(context) ||
+          headContent[context] !== contextValue
+        ) {
+          items.appContext = contextValue as string;
+        }
+      } else if (typeof contextValue === "object") {
+        for (const [screenName, screenValue] of Object.entries(contextValue)) {
+          if (typeof screenValue === "object") {
+            const screenContext = screenValue["screenContext"] as string;
+            for (const [key, value] of Object.entries(screenValue)) {
+              if (
+                !headContent[context]?.[screenName]?.hasOwnProperty(key) ||
+                headContent[context][screenName][key] !== value
+              ) {
+                items.updatedItems.push({
+                  screenName,
+                  screenContext,
+                  key,
+                  value: value as string,
+                });
+              }
+            }
+          }
+        }
       }
     }
   }
 }
 
-console.log("🚀 ~ file: translation.ts:18 ~ items:", items);
+console.log(items);
