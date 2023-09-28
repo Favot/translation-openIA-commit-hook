@@ -1,4 +1,12 @@
 {
   "greeting": "Hallo",
-  "subscribe": "Kaufe die Premium-Version für 14,99 $"
+  "subscribe": "Kaufe die Premium-Version für 14,99 $",
+  "welcomeScreen": {
+    "description": "Dies ist eine Beschreibung des Begrüßungsbildschirms für Handball",
+    "title": "Willkommen in der App"
+  },
+  "mainScreen": {
+    "description": "Dies ist eine Beschreibung des Hauptbildschirms für Fußball",
+    "title": "Hauptbildschirm"
+  }
 }

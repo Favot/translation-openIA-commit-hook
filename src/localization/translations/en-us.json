@@ -1,0 +1,10 @@
+{
+  "welcomeScreen": {
+    "title": "Welcome to the app",
+    "description": "This is description of the welcome screen for the handball"
+  },
+  "mainScreen": {
+    "title": "Main screen",
+    "description": "This is description of the main screen for the football"
+  }
+}

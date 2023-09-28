@@ -12,6 +12,16 @@
       "description": "This is description of the main screen for the football"
     }
   },
+  "component": {
+    "button": {
+      "title": "Button title",
+      "description": "Button description"
+    },
+    "input": {
+      "title": "Input title",
+      "description": "Input description"
+    }
+  },
   "common": {
     "cancel": "Cancel",
     "validate": "Validate"

@@ -1,0 +1,10 @@
+{
+  "welcomeScreen": {
+    "description": "Ceci est la description de l'écran de bienvenue pour le handball",
+    "title": "Bienvenue dans l'application"
+  },
+  "mainScreen": {
+    "description": "Ceci est la description de l'écran principal pour le football",
+    "title": "Écran principal"
+  }
+}
