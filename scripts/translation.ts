@@ -1,12 +1,15 @@
+import env from "dotenv";
 import fs from "fs";
 import OpenAI from "openai";
 import path from "path";
 import { UpdatedTranslationItem } from "./type";
 import { getChangedFiles, processFile } from "./utils";
-
 const LANGUAGES = ["de", "fr", "en-us"];
 
 const TRANSLATION_DIR = "./src/localization/translations";
+
+const openAiApiKey = env.config().parsed?.OPENAI_API_KEY;
+
 const main = async () => {
   const files = getChangedFiles();
 
@@ -26,7 +29,7 @@ const main = async () => {
   };
 
   const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: openAiApiKey,
   });
 
   files.forEach(async (file) => {
