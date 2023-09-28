@@ -9,7 +9,7 @@
     "mainScreen": {
       "screenContext": "Main ss screen ss context",
       "title": "Main screen",
-      "description2": "This is description of the main screen for the handball"
+      "description": "This is description of the main screen for the handball"
     }
   },
   "common": {
