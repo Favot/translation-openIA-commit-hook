@@ -8,5 +8,13 @@
   "mainScreen": {
     "description": "Dies ist eine Beschreibung des Hauptbildschirms für Fußball",
     "title": "Hauptbildschirm"
+  },
+  "button": {
+    "title": "Button-Titel",
+    "description": "Button-Beschreibung"
+  },
+  "input": {
+    "title": "Eingabetitel",
+    "description": "Eingabebeschreibung"
   }
 }
