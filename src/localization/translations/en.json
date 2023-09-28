@@ -8,8 +8,8 @@
     },
     "mainScreen": {
       "screenContext": "Main ss screen ss context",
-      "title": "Maine ses screen",
-      "description2": "This the drscription of the main screen"
+      "title": "Maine screen",
+      "description2": "This the description of the main screen"
     }
   },
   "common": {
