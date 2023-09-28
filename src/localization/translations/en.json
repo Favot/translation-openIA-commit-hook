@@ -4,12 +4,12 @@
     "welcomeScreen": {
       "screenContext": "Welcome test screen wild context",
       "title": "Welcome to the  app app",
-      "description": "Thi is thdwdawdawe dddd description of the welcome screen"
+      "description": "This is description of the welcome screen for adults"
     },
     "mainScreen": {
       "screenContext": "Main ss screen ss context",
       "title": "Maine screen",
-      "description2": "This is description of the main screen for the kids"
+      "description2": "This is description of the main screen for the teenagers"
     }
   },
   "common": {
