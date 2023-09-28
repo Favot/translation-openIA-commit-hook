@@ -9,7 +9,7 @@
     "mainScreen": {
       "screenContext": "Main ss screen ss context",
       "title": "Main screen",
-      "description": "This is description of the main screen for the football"
+      "description": "This is nice description of the main screen for the football"
     }
   },
   "component": {
